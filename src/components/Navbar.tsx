@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/mycelium-logo.png';
 
 const navItems = [
   { label: 'Services', href: '#services' },
   { label: 'Expertise', href: '#expertise' },
+  { label: 'Packages', href: '#packages' },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
@@ -37,8 +37,8 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3">
-            <img src={logo} alt="Mycelium" className="h-10 w-auto" />
+          <a href="#" className="flex items-center gap-2">
+            <span className="text-2xl font-display font-bold gradient-text">Mycelium</span>
           </a>
 
           {/* Desktop Navigation */}

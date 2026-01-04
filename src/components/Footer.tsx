@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter } from 'lucide-react';
-import logo from '@/assets/mycelium-logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -37,7 +35,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-2">
-            <img src={logo} alt="Mycelium" className="h-10 w-auto mb-4" />
+            <span className="text-2xl font-display font-bold gradient-text mb-4 block">Mycelium</span>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Where Systems Connect. We build seamless integrations and powerful web applications that transform how businesses operate.
             </p>
