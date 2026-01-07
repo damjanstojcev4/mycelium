@@ -1,3 +1,5 @@
+'use client';
+
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Send, Mail, MapPin, Phone, Loader2, CheckCircle } from 'lucide-react';
@@ -17,18 +19,47 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const form = e.currentTarget;
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: 'Message sent!',
-      description: "We'll get back to you within 24 hours.",
-    });
+    const payload = {
+      full_name: (form.querySelector('#name') as HTMLInputElement).value,
+      email: (form.querySelector('#email') as HTMLInputElement).value,
+      company_name: (form.querySelector('#company') as HTMLInputElement).value,
+      help_with: (form.querySelector('#service') as HTMLSelectElement).value,
+      project_about: (form.querySelector('#message') as HTMLTextAreaElement).value,
+    };
 
-    // Reset form after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      const res = await fetch(
+        'https://x8ki-letl-twmt.n7.xano.io/api:ki47tPok/submit_inquiry',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!res.ok) throw new Error('Request failed');
+
+      setIsSubmitted(true);
+      toast({
+        title: 'Message sent!',
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      form.reset();
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Something went wrong. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,7 +123,7 @@ const ContactSection = () => {
 
               <div>
                 <label htmlFor="company" className="block text-sm font-medium mb-2">
-                  Company (Optional)
+                  Company
                 </label>
                 <Input
                   id="company"
@@ -172,11 +203,10 @@ const ContactSection = () => {
                   Ready to Connect Your Systems?
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Whether you're looking to automate workflows, integrate systems, or build a custom web solution, we're here to help. Reach out and let's discuss how we can transform your operations.
+                  Whether you're looking to automate workflows, integrate systems, or build a custom web solution, we're here to help.
                 </p>
               </div>
 
-              {/* Contact Details */}
               <div className="space-y-4">
                 <a
                   href="mailto:hello@mycelium.dev"
