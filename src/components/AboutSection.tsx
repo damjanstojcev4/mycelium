@@ -43,9 +43,6 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-mycelium-lime text-sm font-medium tracking-wider uppercase mb-4 block">
-              About Mycelium
-            </span>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
               Building Digital <span className="gradient-text">Connections</span> That Matter
             </h2>
