@@ -61,14 +61,6 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
             </li>
           ))}
         </ul>
-
-        {/* Link */}
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 text-mycelium-lime hover:gap-3 transition-all duration-300"
-        >
-          Learn more <ArrowRight className="w-4 h-4" />
-        </a>
       </div>
     </motion.div>
   );
