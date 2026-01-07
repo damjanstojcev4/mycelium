@@ -93,9 +93,6 @@ const ExpertiseSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <span className="text-mycelium-lime text-sm font-medium tracking-wider uppercase mb-4 block">
-            Our Stack
-          </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
             Technology <span className="gradient-text">Expertise</span>
           </h2>
@@ -120,8 +117,8 @@ const ExpertiseSection = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-20 border-t border-border"
         >
           {[
-            { value: '50+', label: 'Projects Delivered' },
-            { value: '30+', label: 'Happy Clients' },
+            { value: '30+', label: 'Projects Delivered' },
+            { value: '20+', label: 'Happy Clients' },
             { value: '5+', label: 'Years Experience' },
             { value: '99%', label: 'Client Satisfaction' },
           ].map((stat, index) => (
