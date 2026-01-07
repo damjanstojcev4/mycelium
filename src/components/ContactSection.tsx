@@ -26,6 +26,7 @@ const ContactSection = () => {
       email: (form.querySelector('#email') as HTMLInputElement).value,
       company_name: (form.querySelector('#company') as HTMLInputElement).value,
       help_with: (form.querySelector('#service') as HTMLSelectElement).value,
+      plan: (form.querySelector('#plan') as HTMLSelectElement).value, // new field
       project_about: (form.querySelector('#message') as HTMLTextAreaElement).value,
     };
 
@@ -76,9 +77,6 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-mycelium-lime text-sm font-medium tracking-wider uppercase mb-4 block">
-            Get In Touch
-          </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
             Let's Build Something <span className="gradient-text">Amazing</span>
           </h2>
@@ -150,6 +148,23 @@ const ContactSection = () => {
                 </select>
               </div>
 
+              {/* New Plan Dropdown */}
+              <div>
+                <label htmlFor="plan" className="block text-sm font-medium mb-2">
+                  Which plan do you want to pursue?
+                </label>
+                <select
+                  id="plan"
+                  required
+                  className="w-full h-10 px-3 rounded-lg bg-card border border-border text-foreground focus:border-mycelium-lime focus:outline-none focus:ring-2 focus:ring-mycelium-lime/20"
+                >
+                  <option value="">Select a plan</option>
+                  <option value="starter">Starter</option>
+                  <option value="professional">Professional</option>
+                  <option value="enterprise">Enterprise</option>
+                </select>
+              </div>
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Tell us about your project
@@ -208,19 +223,6 @@ const ContactSection = () => {
               </div>
 
               <div className="space-y-4">
-                <a
-                  href="mailto:hello@mycelium.dev"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-mycelium-lime/30 transition-all duration-300 group"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-mycelium-lime/20 to-mycelium-teal/20 flex items-center justify-center text-mycelium-lime group-hover:scale-110 transition-transform">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">Email us at</div>
-                    <div className="font-medium">hello@mycelium.dev</div>
-                  </div>
-                </a>
-
                 <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-mycelium-lime/20 to-mycelium-teal/20 flex items-center justify-center text-mycelium-lime">
                     <MapPin className="w-5 h-5" />
