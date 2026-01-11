@@ -32,7 +32,7 @@ const ContactSection = () => {
 
     try {
       const res = await fetch(
-        'https://x8ki-letl-twmt.n7.xano.io/api:ki47tPok/submit_inquiry',
+        'https://x8ki-letl-twmt.n7.xano.io/api:OI2qP2jA/mycelium_site',
         {
           method: 'POST',
           headers: {
