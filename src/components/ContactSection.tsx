@@ -22,12 +22,12 @@ const ContactSection = () => {
     const form = e.currentTarget;
 
     const payload = {
-      full_name: (form.querySelector('#name') as HTMLInputElement).value,
+      name: (form.querySelector('#name') as HTMLInputElement).value,
       email: (form.querySelector('#email') as HTMLInputElement).value,
-      company_name: (form.querySelector('#company') as HTMLInputElement).value,
-      help_with: (form.querySelector('#service') as HTMLSelectElement).value,
+      company: (form.querySelector('#company') as HTMLInputElement).value,
+      service: (form.querySelector('#service') as HTMLSelectElement).value,
       plan: (form.querySelector('#plan') as HTMLSelectElement).value, // new field
-      project_about: (form.querySelector('#message') as HTMLTextAreaElement).value,
+      project: (form.querySelector('#message') as HTMLTextAreaElement).value,
     };
 
     try {
