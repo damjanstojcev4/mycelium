@@ -29,10 +29,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight text-balance max-w-4xl mx-auto"
           >
-            Where Systems{' '}
-            <span className="gradient-text">Connect</span>
+            Where Systems <span className="gradient-text">Connect</span>
           </motion.h1>
 
           {/* Subheadline */}
