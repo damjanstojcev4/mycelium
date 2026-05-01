@@ -1,7 +1,7 @@
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   const links = {
     services: [
@@ -12,10 +12,11 @@ const Footer = () => {
     ],
     company: [
       { label: 'About', href: '#about' },
-      { label: 'Portfolio', href: '#portfolio' },
+      { label: 'Process', href: '#process' },
+      { label: 'Work', href: '#portfolio' },
       { label: 'Contact', href: '#contact' },
     ],
-    technologies: [
+    stack: [
       { label: 'n8n', href: '#expertise' },
       { label: 'Zapier', href: '#expertise' },
       { label: 'SnapLogic', href: '#expertise' },
@@ -23,100 +24,65 @@ const Footer = () => {
     ],
   };
 
-  const socialLinks = [
-    { icon: <Twitter className="w-5 h-5" />, href: '#', label: 'Twitter' },
-    { icon: <Linkedin className="w-5 h-5" />, href: '#', label: 'LinkedIn' },
-    { icon: <Github className="w-5 h-5" />, href: '#', label: 'GitHub' },
+  const socials = [
+    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Github, href: '#', label: 'GitHub' },
   ];
 
   return (
-    <footer className="relative z-20 bg-mycelium-deep border-t border-border">
+    <footer className="relative z-20 border-t border-border/60 mt-20">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
-          {/* Brand */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
           <div className="col-span-2 lg:col-span-2">
-            <span className="text-2xl font-display font-bold gradient-text mb-4 block">Mycelium</span>
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              Where Systems Connect. We build seamless integrations and powerful web applications that transform how businesses operate.
+            <a href="#" className="flex items-center gap-2 mb-4">
+              <div className="w-7 h-7 rounded-lg bg-mycelium-lime flex items-center justify-center">
+                <div className="w-3 h-3 rounded-sm bg-mycelium-deep" />
+              </div>
+              <span className="text-lg font-display font-semibold">Mycelium</span>
+            </a>
+            <p className="text-sm text-muted-foreground mb-6 max-w-sm leading-relaxed">
+              A boutique integration studio. Where systems connect, work flows.
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((link) => (
+            <div className="flex gap-2">
+              {socials.map(({ icon: Icon, href, label }) => (
                 <a
-                  key={link.label}
-                  href={link.href}
-                  aria-label={link.label}
-                  className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-mycelium-lime hover:border-mycelium-lime/30 transition-all duration-300"
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="w-9 h-9 rounded-full bg-card/60 border border-border/60 flex items-center justify-center text-muted-foreground hover:text-mycelium-lime hover:border-mycelium-lime/40 transition-all"
                 >
-                  {link.icon}
+                  <Icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-display font-semibold mb-4">Services</h4>
-            <ul className="space-y-3">
-              {links.services.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-display font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              {links.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Technologies */}
-          <div>
-            <h4 className="font-display font-semibold mb-4">Technologies</h4>
-            <ul className="space-y-3">
-              {links.technologies.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {[
+            { title: 'Services', items: links.services },
+            { title: 'Company', items: links.company },
+            { title: 'Stack', items: links.stack },
+          ].map((col) => (
+            <div key={col.title}>
+              <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">{col.title}</h4>
+              <ul className="space-y-2.5">
+                {col.items.map((l) => (
+                  <li key={l.label}>
+                    <a href={l.href} className="text-sm text-foreground/80 hover:text-mycelium-lime transition-colors">
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} Mycelium. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Terms of Service
-            </a>
+        <div className="mt-16 pt-8 border-t border-border/60 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs font-mono text-muted-foreground">© {year} MYCELIUM · ALL RIGHTS RESERVED</p>
+          <div className="flex gap-6 text-xs font-mono text-muted-foreground">
+            <a href="#" className="hover:text-foreground transition-colors uppercase">Privacy</a>
+            <a href="#" className="hover:text-foreground transition-colors uppercase">Terms</a>
           </div>
         </div>
       </div>
