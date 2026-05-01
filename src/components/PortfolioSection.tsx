@@ -103,12 +103,13 @@ const PortfolioSection = () => {
                   <p className="text-sm text-muted-foreground mb-4 max-w-md">
                     {p.description}
                   </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {p.tags.map((t) => (
-                      <span key={t} className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    {p.tags.map((t, idx) => (
+                      <span key={t} className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider flex items-center gap-2">
+                        {idx > 0 && <span className="text-muted-foreground/40">·</span>}
                         {t}
                       </span>
-                    )).reduce((prev, curr, idx) => idx === 0 ? [curr] : [...prev, <span key={`d${idx}`} className="text-muted-foreground/40">·</span>, curr], [] as React.ReactNode[])}
+                    ))}
                   </div>
                 </div>
               </div>
