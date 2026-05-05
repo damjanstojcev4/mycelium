@@ -1,86 +1,120 @@
 import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+
+interface Node {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  radius: number;
+  color: string;
+}
 
 const NetworkBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const nodesRef = useRef<Node[]>([]);
   const animationRef = useRef<number>();
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let dpr = window.devicePixelRatio || 1;
-    const resize = () => {
-      dpr = window.devicePixelRatio || 1;
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-      ctx.scale(dpr, dpr);
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     };
-    resize();
-    window.addEventListener('resize', resize);
 
-    const w = () => window.innerWidth;
-    const h = () => window.innerHeight;
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-    type Node = { x: number; y: number; vx: number; vy: number; r: number };
-    const count = Math.min(60, Math.floor((w() * h()) / 30000));
-    const nodes: Node[] = Array.from({ length: count }, () => ({
-      x: Math.random() * w(),
-      y: Math.random() * h(),
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      r: Math.random() * 1.5 + 0.8,
+    // Initialize nodes
+    const colors = ['#8BC34A', '#4DB6AC', '#26A69A', '#66BB6A', '#81C784'];
+    const nodeCount = Math.floor((window.innerWidth * window.innerHeight) / 25000);
+    
+    nodesRef.current = Array.from({ length: nodeCount }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: Math.random() * 3 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
     }));
 
     const animate = () => {
-      ctx.clearRect(0, 0, w(), h());
+      ctx.fillStyle = 'rgba(26, 45, 35, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      nodes.forEach((n, i) => {
-        n.x += n.vx;
-        n.y += n.vy;
-        if (n.x < 0 || n.x > w()) n.vx *= -1;
-        if (n.y < 0 || n.y > h()) n.vy *= -1;
+      const nodes = nodesRef.current;
 
-        for (let j = i + 1; j < nodes.length; j++) {
-          const o = nodes[j];
-          const dx = o.x - n.x;
-          const dy = o.y - n.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 180) {
-            const opacity = (1 - dist / 180) * 0.18;
+      // Update and draw nodes
+      nodes.forEach((node, i) => {
+        // Update position
+        node.x += node.vx;
+        node.y += node.vy;
+
+        // Bounce off walls
+        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+        // Draw connections
+        nodes.slice(i + 1).forEach((other) => {
+          const dx = other.x - node.x;
+          const dy = other.y - node.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
             ctx.beginPath();
-            ctx.moveTo(n.x, n.y);
-            ctx.lineTo(o.x, o.y);
-            ctx.strokeStyle = `hsla(80, 85%, 60%, ${opacity})`;
-            ctx.lineWidth = 0.6;
+            ctx.moveTo(node.x, node.y);
+            ctx.lineTo(other.x, other.y);
+            const opacity = (1 - distance / 150) * 0.3;
+            ctx.strokeStyle = `rgba(139, 195, 74, ${opacity})`;
+            ctx.lineWidth = 1;
             ctx.stroke();
           }
-        }
+        });
 
+        // Draw node
         ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'hsla(80, 85%, 60%, 0.6)';
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = node.color;
+        ctx.fill();
+
+        // Add glow
+        const gradient = ctx.createRadialGradient(
+          node.x, node.y, 0,
+          node.x, node.y, node.radius * 3
+        );
+        gradient.addColorStop(0, `${node.color}40`);
+        gradient.addColorStop(1, 'transparent');
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius * 3, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
         ctx.fill();
       });
 
       animationRef.current = requestAnimationFrame(animate);
     };
+
     animate();
 
     return () => {
-      window.removeEventListener('resize', resize);
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      window.removeEventListener('resize', resizeCanvas);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
   }, []);
 
   return (
-    <canvas
+    <motion.canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-50"
-      aria-hidden
+      className="fixed inset-0 pointer-events-none z-0"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
     />
   );
 };
