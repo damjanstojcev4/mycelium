@@ -65,7 +65,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap gap-4 justify-center"
+            className="flex flex-wrap gap-2 sm:gap-4 justify-center"
           >
             {[
               { icon: <Zap className="w-4 h-4" />, label: 'Workflow Automation' },
