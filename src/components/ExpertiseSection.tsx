@@ -10,7 +10,7 @@ const technologies = [
   },
   {
     name: 'Supabase',
-    description: 'Open-source Firebase alternative',
+    description: 'Backend & auth platform',
     category: 'Backend',
     color: 'from-emerald-400 to-green-600',
   },
