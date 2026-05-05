@@ -50,12 +50,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12 sm:mb-16"
           >
-            <Button variant="hero" size="xl" asChild>
+            <Button variant="hero" size="lg" className="sm:h-14 sm:px-8 sm:text-base" asChild>
               <a href="#contact">Start Your Project</a>
             </Button>
-            <Button variant="heroOutline" size="xl" asChild>
+            <Button variant="heroOutline" size="lg" className="sm:h-14 sm:px-8 sm:text-base" asChild>
               <a href="#portfolio">View Our Work</a>
             </Button>
           </motion.div>
