@@ -17,7 +17,7 @@ const Footer = () => {
     ],
     technologies: [
       { label: 'n8n', href: '#expertise' },
-      { label: 'Zapier', href: '#expertise' },
+      { label: 'Supabase', href: '#expertise' },
       { label: 'SnapLogic', href: '#expertise' },
       { label: 'Next.js', href: '#expertise' },
     ],
