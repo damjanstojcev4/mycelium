@@ -159,6 +159,7 @@ const ContactSection = () => {
                   className="w-full h-10 px-3 rounded-lg bg-card border border-border text-foreground focus:border-mycelium-lime focus:outline-none focus:ring-2 focus:ring-mycelium-lime/20"
                 >
                   <option value="">Select a plan</option>
+                  <option value="small_business">Small Business</option>
                   <option value="starter">Starter</option>
                   <option value="professional">Professional</option>
                   <option value="enterprise">Enterprise</option>
