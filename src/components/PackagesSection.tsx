@@ -51,13 +51,13 @@ const packages = [
 {
   name: 'Professional',
   icon: <Rocket className="w-6 h-6" />,
-  price: '€1,799',
+  price: '€1,999',
   period: 'per project',
   description: 'Ideal for growing businesses that need automation and a professional web solution.',
   features: [
     // Automation & Integrations
     'Up to 10 workflow automations',
-    'Up to 5 system integrations (Zapier, n8n, Xano, APIs)',
+    'Up to 5 system integrations (n8n, Xano, Supabase, APIs)',
     'Advanced logic, conditions, and data handling',
 
     // Web Development
