@@ -220,6 +220,7 @@ const PackagesSection = () => {
                 asChild
               >
                 <a href="#contact">
+                  {pkg.name === "Small Business" && "Get Started"}
                   {pkg.name === "Starter" && "Get Started"}
                   {pkg.name === "Professional" && "Start Your Project"}
                   {pkg.name === "Enterprise" && "Request a Consultation"}
