@@ -128,8 +128,8 @@ const PortfolioSection = () => {
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="portfolio" className="py-32 relative">
-      <div className="container mx-auto px-6">
+    <section id="portfolio" className="py-20 sm:py-32 relative">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           ref={headerRef}
@@ -138,15 +138,15 @@ const PortfolioSection = () => {
             isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-20"
         >
           <span className="text-mycelium-lime text-sm font-medium tracking-wider uppercase mb-4 block">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-xl text-muted-foreground">
             Explore some of our recent projects where we've helped businesses
             transform their operations through smart integrations and modern web
             solutions.
@@ -154,7 +154,7 @@ const PortfolioSection = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
