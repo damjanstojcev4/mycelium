@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, Zap, Rocket, Crown } from 'lucide-react';
+import { Check, Sprout, Zap, Rocket, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const packages = [
