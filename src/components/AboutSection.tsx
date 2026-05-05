@@ -35,7 +35,7 @@ const AboutSection = () => {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-mycelium-lime/5 to-transparent" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             ref={ref}
@@ -43,7 +43,7 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
               Building Digital <span className="gradient-text">Connections</span> That Matter
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">

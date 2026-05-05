@@ -91,12 +91,12 @@ const ExpertiseSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
             Technology <span className="gradient-text">Expertise</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-xl text-muted-foreground">
             We master the tools that power modern integrations and web applications, delivering robust solutions that scale.
           </p>
         </motion.div>
@@ -114,7 +114,7 @@ const ExpertiseSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-20 border-t border-border"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-20 pt-12 sm:pt-20 border-t border-border"
         >
           {[
             { value: '30+', label: 'Projects Delivered' },

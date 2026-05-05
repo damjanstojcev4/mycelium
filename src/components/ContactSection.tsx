@@ -77,15 +77,15 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
             Let's Build Something <span className="gradient-text">Amazing</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-xl text-muted-foreground">
             Ready to transform your business with powerful integrations? Let's discuss your project.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

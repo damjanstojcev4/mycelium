@@ -109,12 +109,12 @@ const PackagesSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
           <span className="text-mycelium-lime text-sm font-medium tracking-wider uppercase mb-4 block">
             Packages
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
             Choose Your <span className="gradient-text">Plan</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -124,14 +124,14 @@ const PackagesSection = () => {
         </motion.div>
 
         {/* Packages Grid */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.name}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative rounded-3xl p-8 border transition-all duration-300 hover:-translate-y-2 flex flex-col ${
+              className={`relative rounded-3xl p-6 sm:p-8 border transition-all duration-300 hover:-translate-y-2 flex flex-col ${
                 pkg.popular
                   ? "bg-gradient-to-b from-mycelium-lime/10 to-mycelium-teal/5 border-mycelium-lime/30 shadow-lg shadow-mycelium-lime/10"
                   : "bg-card/50 border-border hover:border-mycelium-lime/20"
