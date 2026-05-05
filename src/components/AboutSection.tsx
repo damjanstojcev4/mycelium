@@ -30,11 +30,11 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="py-32 relative bg-mycelium-deep">
+    <section id="about" className="py-20 sm:py-32 relative bg-mycelium-deep">
       {/* Background Gradient */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-mycelium-lime/5 to-transparent" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <motion.div

@@ -75,7 +75,7 @@ const ExpertiseSection = () => {
   const isHeaderInView = useInView(headerRef, { once: true, margin: '-100px' });
 
   return (
-    <section id="expertise" className="py-32 relative bg-mycelium-deep">
+    <section id="expertise" className="py-20 sm:py-32 relative bg-mycelium-deep">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -84,7 +84,7 @@ const ExpertiseSection = () => {
         }} />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <motion.div
           ref={headerRef}

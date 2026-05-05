@@ -31,7 +31,7 @@ const Footer = () => {
 
   return (
     <footer className="relative z-20 bg-mycelium-deep border-t border-border">
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-2">

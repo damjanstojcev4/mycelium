@@ -128,8 +128,8 @@ const PortfolioSection = () => {
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="portfolio" className="py-32 relative">
-      <div className="container mx-auto px-6">
+    <section id="portfolio" className="py-20 sm:py-32 relative">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           ref={headerRef}
