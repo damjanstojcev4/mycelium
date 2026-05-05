@@ -18,10 +18,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-secondary border border-border mb-6 sm:mb-8 max-w-full"
           >
-            <span className="w-2 h-2 rounded-full bg-mycelium-lime animate-pulse" />
-            <span className="text-sm text-muted-foreground">Integration & Web Development Agency</span>
+            <span className="w-2 h-2 rounded-full bg-mycelium-lime animate-pulse flex-shrink-0" />
+            <span className="text-xs sm:text-sm text-muted-foreground">Integration & Web Development Agency</span>
           </motion.div>
 
           {/* Main Headline */}
