@@ -1,19 +1,38 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, Zap, Rocket, Crown } from 'lucide-react';
+import { Check, Sprout, Zap, Rocket, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const packages = [
   {
+  name: 'Small Business',
+  icon: <Sprout className="w-6 h-6" />,
+  price: '€699',
+  period: 'per project',
+  description: 'Lightweight automation or simple online presence for small teams getting started.',
+  features: [
+    'Up to 2 workflow automations',
+    '1 system integration (n8n, Make, Supabase, APIs)',
+    'Basic data sync or form automation',
+    'Single landing page',
+    'Responsive design',
+    'Contact form with email automation',
+    '21-day delivery',
+    '1 revision round',
+    'Email support',
+  ],
+  popular: false,
+},
+{
   name: 'Starter',
   icon: <Zap className="w-6 h-6" />,
-  price: '€799',
+  price: '€999',
   period: 'per project',
   description: 'Best for small businesses needing basic automation or a simple web presence.',
   features: [
     // Automation & Integrations
     'Up to 3 workflow automations',
-    'Up to 2 system integrations (Zapier, n8n, Make, APIs)',
+    'Up to 2 system integrations (n8n, Make, Supabase, APIs)',
     'Basic data sync or form automation',
 
     // Web Development
@@ -32,13 +51,13 @@ const packages = [
 {
   name: 'Professional',
   icon: <Rocket className="w-6 h-6" />,
-  price: '€1,799',
+  price: '€1,999',
   period: 'per project',
   description: 'Ideal for growing businesses that need automation and a professional web solution.',
   features: [
     // Automation & Integrations
     'Up to 10 workflow automations',
-    'Up to 5 system integrations (Zapier, n8n, Xano, APIs)',
+    'Up to 5 system integrations (n8n, Xano, Supabase, APIs)',
     'Advanced logic, conditions, and data handling',
 
     // Web Development
@@ -124,7 +143,7 @@ const PackagesSection = () => {
         </motion.div>
 
         {/* Packages Grid */}
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.name}
@@ -201,6 +220,7 @@ const PackagesSection = () => {
                 asChild
               >
                 <a href="#contact">
+                  {pkg.name === "Small Business" && "Get Started"}
                   {pkg.name === "Starter" && "Get Started"}
                   {pkg.name === "Professional" && "Start Your Project"}
                   {pkg.name === "Enterprise" && "Request a Consultation"}

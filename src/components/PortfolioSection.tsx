@@ -32,8 +32,8 @@ const projects = [
   {
     title: "CRM Integration Suite",
     description:
-      "Created a seamless integration between Salesforce, HubSpot using Zapier and APIs.",
-    tags: ["Zapier", "Salesforce", "HubSpot"],
+      "Created a seamless integration between Salesforce, HubSpot using n8n and APIs.",
+    tags: ["n8n", "Salesforce", "HubSpot"],
     category: "Automation",
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80",

@@ -9,10 +9,10 @@ const technologies = [
     color: 'from-orange-500 to-red-500',
   },
   {
-    name: 'Zapier',
-    description: 'Connect apps, automate tasks',
-    category: 'Automation',
-    color: 'from-orange-400 to-orange-600',
+    name: 'Supabase',
+    description: 'Open-source Firebase alternative',
+    category: 'Backend',
+    color: 'from-emerald-400 to-green-600',
   },
   {
     name: 'SnapLogic',
