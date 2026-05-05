@@ -11,7 +11,7 @@ const HeroSection = () => {
       {/* Radial Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-mycelium-lime/5 rounded-full blur-3xl z-10" />
       
-      <div className="container mx-auto px-6 relative z-20">
+      <div className="container mx-auto px-4 sm:px-6 relative z-20">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
