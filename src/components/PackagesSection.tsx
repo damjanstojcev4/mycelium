@@ -5,15 +5,34 @@ import { Button } from '@/components/ui/button';
 
 const packages = [
   {
+  name: 'Small Business',
+  icon: <Sprout className="w-6 h-6" />,
+  price: '€699',
+  period: 'per project',
+  description: 'Lightweight automation or simple online presence for small teams getting started.',
+  features: [
+    'Up to 2 workflow automations',
+    '1 system integration (n8n, Make, Supabase, APIs)',
+    'Basic data sync or form automation',
+    'Single landing page',
+    'Responsive design',
+    'Contact form with email automation',
+    '21-day delivery',
+    '1 revision round',
+    'Email support',
+  ],
+  popular: false,
+},
+{
   name: 'Starter',
   icon: <Zap className="w-6 h-6" />,
-  price: '€799',
+  price: '€999',
   period: 'per project',
   description: 'Best for small businesses needing basic automation or a simple web presence.',
   features: [
     // Automation & Integrations
     'Up to 3 workflow automations',
-    'Up to 2 system integrations (Zapier, n8n, Make, APIs)',
+    'Up to 2 system integrations (n8n, Make, Supabase, APIs)',
     'Basic data sync or form automation',
 
     // Web Development
