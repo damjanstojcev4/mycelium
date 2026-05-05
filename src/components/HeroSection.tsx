@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-mycelium-deep via-background to-background z-10" />
       
